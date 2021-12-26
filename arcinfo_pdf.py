@@ -64,8 +64,9 @@ if __name__ == "__main__":
 
     parser.add_argument("username", help="ArcInfo username")
     parser.add_argument("password", help="ArcInfo password")
+    parser.add_argument("output_folder", help="Output folder")
 
     args = parser.parse_args()
 
-    date = datetime.now()-timedelta(days=1)
-    get_arcinfo_pdf(date, "{0}.pdf".format(date.strftime("%Y-%m-%d")), args.username, args.password)
+    date = datetime.now()
+    get_arcinfo_pdf(date, "{0}/{1}.pdf".format(args.output_folder, date.strftime("%Y-%m-%d")), args.username, args.password)
